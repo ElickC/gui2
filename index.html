@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CanineConnection - About</title>
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  <!-- Global site CSS-->
+  <link rel="stylesheet" href="./css/CanineConnection.css">
+  <!-- About Page CSS-->
+  <link rel="stylesheet" href="./about/css/About.css">
+  <!-- JQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap JS-->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+  <!-- Firebase SDK-->
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+  <!-- Initalize Firebase for Navbar authentication check-->
+  <script src="./js/FirebaseInitialize.js"></script>
+  <!-- Navbar JS-->
+  <script src="./js/Navbar.js"></script>
+</head>
+
+<body>
+  <!-- Top-static navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top id=site_navbar">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Navbar logo header-->
+        <div class="col-xs-4">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="">CanineConnection</a>
+          </div>
+        </div>
+        <!-- Nav links inserted by Navbar.js based on user auth status-->
+        <div class="col-xs-8 navbar-right">
+          <ul class="nav navbar-nav nav-pills" id="navbar_pills">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Main content wrapper-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+          <h1>-Our Mission-</h1>
+          <p>To bring mankind one step closer to dogs</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <div class="info_section">
+          <h2>About Our Organization</h2>
+          <p>Untoward and illegitimate breeding operations lure dog owners from proper breeding channels. Puppy mills
+            have
+            led
+            to an abundance in unadopted, ownerless offspring.
+            Canine Connection strives to remove mystery from the breeding process by requiring necessary information of
+            a
+            purchased or partnered dog.
+            By revealing the reputations of the owner/breeder as evaluated by previous clients, we can create a
+            transparent
+            community between owner and breeder.
+            By requiring pedigree, age, health and other fields impactful to litter. It will be made transparent to
+            users
+            browsing for the next parent of the newest member of the family.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <div class="info_section">
+          <h2>What's the problem right now?</h2>
+          <p>
+            Breeders are lacking legitimate documentation that promotes health risks and unanticipated breed mixing. Our
+            own
+            experiences in breeding have revealed the absence of a consolidated portal to answer such concerns. ,
+            pressuring
+            owners to travel to prospective breeders before a deal is broken. Our mission with Canine Connection is to
+            reduce
+            puppy farm business and the lack of transparency social media marketplaces facilitate for illegitimate
+            breeders.
+            By offering a straightforward
+            breeding experience we will slowly erase the inhumane puppy mill operations and misleading marketplace
+            offers.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <div class="info_section">
+          <h2>What's special about Canine Connection?</h2>
+          <p>
+            Existing, similar services focus are concerned with listing dog profiles from stores and shelters -
+            Petfinder.com,
+            GetPet, etc. Others focus solely on showcasing professional breeders and their businesses - Gespet, Perfect
+            Dog,
+            etc. Canine connection is an intersection of both types of services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // global for easy access to db
+    const db = firebase.firestore();
+
+    const auth = firebase.auth();
+    // db.settings({ timestampsInSnapshots: true });
+    firebase.analytics();
+
+  </script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- JQuery plugin for validation along with the additional methods -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/additional-methods.js"></script>
+  <script src="about/js/About.js"></script>
+</body>
+
+</html>

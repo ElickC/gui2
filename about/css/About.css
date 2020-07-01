@@ -1,0 +1,22 @@
+body{
+  background-image: url("../images/About.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.jumbotron{
+  text-align: center;
+  margin-bottom: 12px;
+  background-color: #b6d7a8;
+  opacity: 0.9;
+}
+
+.info_section {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  opacity: 0.8;
+  text-align: center;
+}

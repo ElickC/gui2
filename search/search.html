@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CanineConnection - Search</title>
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <!-- Global site CSS-->
+    <link rel="stylesheet" href="../css/CanineConnection.css">
+    <!-- Search Page CSS-->
+    <link rel="stylesheet" href="./css/search.css">
+
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+
+    <!-- Firebase SDK-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <!-- Firebase Analytics SDK-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <!-- Firestore-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <!-- Initalize Firebase for Navbar authentication check-->
+    <script src="../js/FirebaseInitialize.js"></script>
+
+    <!-- Navbar JS-->
+    <script src="../js/Navbar.js"></script>
+    <!-- Search JS-->
+    <script src="./js/Search.js"></script>
+</head>
+
+<body>
+    <!-- Top-static navigation bar-->
+    <nav class="navbar navbar-default navbar-fixed-top id=site_navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Navbar logo header-->
+                <div class="col-xs-4">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="../index.html">CanineConnection</a>
+                    </div>
+                </div>
+                <!-- Nav links inserted by Navbar.js based on user auth status-->
+                <div class="col-xs-8 navbar-right">
+                    <ul class="nav navbar-nav nav-pills" id="navbar_pills">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content wrapper-->
+    <div class="container-fluid">
+        <div class="row" id="search_row">
+            <div class="col-xs-12">
+                <form id="search_field_form">
+                    <!-- Form fields grouped by dog and owner information-->
+                    <div class="row">
+                        <!-- Dog fields-->
+                        <div class="search_field_group col-xs-12 col-md-6">
+                            <!-- Dog name input-->
+                            <div class="form-group col-xs-4">
+                                <label for="dog_name_input">Name</label>
+                                <input type="text" class="form-control" id="dog_name_input">
+                            </div>
+                            <!-- Dog sex select-->
+                            <div class="form-group col-xs-4">
+                                <label for="sex_select">Sex</label>
+                                <select class="form-control" id="sex_select">
+                                    <option>Any</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <!-- Dog age range selects-->
+                            <div class="form-group col-xs-4">
+                                <label for="age_min_select">Age</label>
+                                <div class="input-group">
+                                    <!-- Age min-->
+                                    <select class="form-control" id="age_min_select">
+                                        <!-- TO-DO: Populate with nums 1-20 via script-->
+                                        <option>-</option>
+                                    </select>
+                                    <span class="input-group-addon">to</span>
+                                    <!-- Age max-->
+                                    <select class="form-control" id="age_max_select">
+                                        <!-- TO-DO: Populate with nums 1-20 via script-->
+                                        <option>-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Dog breeds input-->
+                            <div class="form-group col-xs-8">
+                                <label for="breeds_input">Breeds</label>
+                                <div class="input-group" id="breeds_input_group">
+                                    <!-- Selecting a breed from dropdown appends that breed to text input-->
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle"
+                                            data-toggle="dropdown">
+                                            Add Breed <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="breeds_dropdown_ul">
+                                        </ul>
+                                    </div>
+                                    <input type="text" class="form-control" id="breeds_input">
+                                </div>
+                            </div>
+                            <!-- Dog listing purpose checkboxes-->
+                            <div class="form-group col-xs-4">
+                                <label for="breeding_checkbox">Availability</label></br>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="breeding_checkbox">Breeding
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="sale_checkbox">Sale
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="play_checkbox">Play
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Owner fields-->
+                        <div class="search_field_group col-xs-12 col-md-6">
+                            <div class="row">
+                                <!-- City input-->
+                                <div class="form-group col-xs-6">
+                                    <label for="city_input">City</label>
+                                    <input type="text" class="form-control" id="city_input" placeholder="City">
+                                </div>
+                                <!-- State input-->
+                                <div class="form-group col-xs-3">
+                                    <label for="state_select">State</label>
+                                    <!-- TO-DO: Populate list with states-->
+                                    <select class="form-control" id="state_select">
+                                        <option>-</option>
+                                    </select>
+                                </div>
+                                <!-- Zip input-->
+                                <div class="form-group col-xs-3">
+                                    <label for="zip_input">Zip</label>
+                                    <input type="text" class="form-control" id="zip_input" placeholder="Zip">
+                                </div>
+                            </div>
+                            <label for="name_input_row">Owner Name</label>
+                            <div class="row" id="name_input_row">
+                                <!-- Owner name input-->
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control" id="firstname_input" placeholder="First">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control" id="lastname_input" placeholder="Last">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <label for="company_input">Company</label>
+                                    <input type="text" class="form-control" id="company_input" placeholder="Company">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+                            <button type="submit" id="search_submit_btn"
+                                class="btn btn-primary btn-block">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="searchResults" class="row">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+#search_row{
+    margin-top: -24px;
+    background: #93c47d;
+}
+#search_field_form {
+    padding-top: 16px;
+}
+.search_field_group {
+}
+
+#results_row {
+}
+
+.search_field_err {
+    float: left;
+    height: 0px;
+    color: #be4a4a;
+}
+
+.form-group{
+    margin-bottom: 24px;
+}
+
+#breeds_dropdown_ul{
+    max-height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+}

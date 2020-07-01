@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>AddDog | Canine Connection</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-to">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="About_page.html"><b>CanineConnection</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="index.html">Home</a></li> -->
+            <!-- <li><a href="#about">About</a></li> -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form class="navbar-form">
+                <a href="Log_in.html" class="btn btn-primary active">Log In</a>
+              </form>
+            </li>
+            <li>
+              <form class="navbar-form">
+                <a href="Sign_up.html" class="btn btn-primary active">Sign Up</a>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <form id="add-dog-form">
+      <h2> Dog Info </h2>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="dogName">Name</label>
+          <input type="text" class="form-control" name="dogName" id="dogName" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dogSex">Sex</label>
+          <select name="dogSex" id="dogSex" class="form-control">
+            <option selected>Choose...</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dogAge">Age</label>
+        <input type="text" class="form-control" name="dogAge" id="dogAge" placeholder="Age">
+      </div>
+      <div class="form-group">
+        <label for="dogBreed">Breed</label>
+        <input type="text" class="form-control" name="dogBreed" id="dogBreed" placeholder="Breed">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" name="dogCity" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select name="inputState" id="dogState" class="form-control">
+            <option selected>Choose...</option>
+            <option>MA</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="dogZip">Zip</label>
+          <input type="text" class="form-control" name="dogZip" id="dogZip">
+        </div>
+      </div>
+      <div class="form-group">
+        <span> Looking for.. </span>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="dogPurpose" id="dogPurposeAdoption" value="Adoption">
+          <label class="form-check-label" for="dogPurposeAdoption">Adoption</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="dogPurpose" id="dogPurposeBreeding" value="Breeding">
+          <label class="form-check-label" for="dogPurposeBreeding">Breeding</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="dogPurpose" id="dogPurposePlay" value="Play">
+          <label class="form-check-label" for="dogPurposePlay">Play</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCeN7ffDFm4ldcV_b77vHtmp69ecLdnNcY",
+        authDomain: "canine-connection-b2414.firebaseapp.com",
+        databaseURL: "https://canine-connection-b2414.firebaseio.com",
+        projectId: "canine-connection-b2414",
+        storageBucket: "canine-connection-b2414.appspot.com",
+        messagingSenderId: "841972379358",
+        appId: "1:841972379358:web:1653668eee22a73bc95c4f",
+        measurementId: "G-QYRPTG50Z3"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // global for easy access to db
+      const db = firebase.firestore()
+      // db.settings({ timestampsInSnapshots: true });
+      firebase.analytics();
+    </script>
+    <script src="js/Database.js"></script>
+  </body>
+</html>
